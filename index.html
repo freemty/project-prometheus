@@ -1,0 +1,404 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Prometheus: 3D-Aware Latent Diffusion Models for Feed-Forward Text-to-3D Scene Generation</title>
+  <!-- <title>MonST3R: A Simple Approach for Estimating Geometry in the Presense of Motion</title> -->
+  <link href="./files/style.css" rel="stylesheet">
+  <link rel="icon" href="icons/prometheus_icon.png" type="image/png">
+  <script type="text/javascript" src="./files/jquery.mlens-1.0.min.js"></script>
+  <script type="text/javascript" src="./files/jquery.js"></script>
+  <style>
+    .divider {
+      border-right: 2px dashed #737373;
+      width: 2px;
+    }
+  </style>
+  <style>
+    .divider_horizontal {
+      border-top: 2px dashed #737373;
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+    }
+  </style>
+  <!-- Begin new styles from demos page -->
+  <style>
+    body {
+      padding: 2em;
+      font-family: sans-serif;
+    }
+
+    iframe {
+      border-radius: 0.5em;
+      width: 27.5em;
+      height: 27.5em;
+      border: none;
+      box-shadow: 0 0 1em 0em rgba(0, 0, 0, 0.15);
+    }
+
+    @media (max-width: 768px) {
+      iframe {
+        width: 100%;
+        height: 30em;
+      }
+    }
+
+    a,
+    a:link {
+      color: #777;
+    }
+
+    /* Styles for the instruction icons and text */
+    .instructions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.2em;
+      text-align: center;
+      padding: 0.6em;
+    }
+
+    .instruction-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      font-size: 1.2em;
+    }
+
+    .instruction-item img {
+      width: 36px;
+      height: 36px;
+    }
+
+    .instructions_small {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1em;
+      text-align: center;
+      padding: 0.5em;
+    }
+
+    .instruction-item_small {
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+      font-size: 1.0em;
+    }
+
+    .instruction-item_small img {
+      width: 30px;
+      height: 30px;
+    }
+  </style>
+  <!-- End new styles -->
+</head>
+
+    <h1 style="line-height: 0.75;">
+      <!-- <img src="./icons/prometheus_icon_full.png" alt="Prometheus Icon" style="width: 640px; vertical-align: middle;"> <br> -->
+        <img src="./icons/prometheus_icon_wbg.png" alt="Prometheus Icon" style="width: 80px; vertical-align: middle;">
+      <strong>
+        <span style="font-weight: bold; color: rgb(255, 69, 92);"> Prometheus</span> 
+        : 3D-Aware Latent Diffusion Models for <br> Feed-Forward Text-to-3D Scene Generation</strong>
+    </h1>
+    <p id="authors">
+      <span>
+        <a href="https://github.com/freemty"> Yuanbo Yang<sup>1,*</sup></a>
+      </span>
+      <span>
+        <a href="https://jiahao-shao1.github.io/">Jiahao Shao<sup>1,*</sup></a>
+      </span>
+      <span>
+        <a href="https://github.com/imlixinyang">Xinyang Li<sup>2</sup></a>
+      </span>
+      <span>
+        <a href="https://shenyujun.github.io/">Yujun Shen<sup>3</sup></a>
+      </span>
+      <span>
+        <a href="https://www.cvlibs.net/">Andreas Geiger<sup>4</sup></a>
+      </span>
+      <span>
+        <a href="https://yiyiliao.github.io/">Yiyi Liao<sup>1,+</sup></a>
+      </span>
+
+      <br>
+      <span class="institution">
+        <sup>1</sup> Zhejiang University</a>
+        <sup>2</sup> Xiamen University</a>
+        <sup>3</sup> Ant Group</a>
+        <sup>4</sup> University of Tübingen</span>
+        <!-- <a href="https://bair.berkeley.edu/"><sup>1</sup> Zhejiang University</a>
+        <a href="https://deepmind.google/"><sup>2</sup> Xiamen University</a>
+        <a href="https://stability.ai/"><sup>3</sup> Ant Group</a>
+        <a href="https://www.ucmerced.edu/"><sup>4</sup> AA</a></span> -->
+        <span class="institution"></span>
+      <span class="institution">(+: corresponding author, *: equal contribution)</span>
+    </p>
+    <body>
+      <div class="content">
+    <!-- <br>
+        <img src="./files/teaser_monst3r.png" class="teaser-gif" style="width:100%;"><br> -->
+
+    <!-- add video files/teaser_vid_v2_lowres.mp4 -->
+    <video width="100%" controls>
+      <source src="./files/demo.mp4" type="video/mp4">
+    </video>
+    <!-- <script>
+
+      var video = document.getElementById('myVideo');
+      video.currentTime = 4;
+      video.addEventListener('loadedmetadata', function () {
+        video.pause();
+      });
+    </script> -->
+    <br>
+    <br>
+
+    <a style="text-align:center">
+      <font size="+1">
+        <strong>MonST3R</strong> processes a dynamic video to produce a time-varying dynamic point cloud, along with per-frame camera poses and intrinsics, in a predominantly <strong>feed-forward</strong> manner. This representation then enables the efficient computation of downstream tasks, such as video depth estimation and dynamic/static scene segmentation.
+      </font>
+    </a>
+    <font size="+2">
+      <p style="text-align: center;">
+        <a href="https://github.com/Junyi42/monst3r" target="_blank">[Paper]</a> &nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- <a href="https://github.com/Junyi42/monst3r" target="_blank">[Arxiv]</a> &nbsp;&nbsp;&nbsp;&nbsp; -->
+        <a href="page1.html" target="_blank" style="font-weight: bold; color: rgb(255, 69, 92);">[Interactive Results🔥]</a> &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/Junyi42/monst3r" target="_blank">[Code]</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://x.com/junyi42/status/1770799360353145037" target="_blank">[X Post]</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- <a href="https://www.youtube.com/watch?v=fyhg50qlNW8" target="_blank">[Video]</a>&nbsp;&nbsp;&nbsp;&nbsp; -->
+        <a href="files/bibtex.txt" target="_blank">[BibTeX]</a>
+      </p>
+    </font>
+  </div>
+
+  <!-- Begin new content: Demos -->
+<div class="content">
+    <h2>Interactive 3D Scene Visualization</h2>
+    <p>Explore the text-to-3D generation results of Prometheus on various scenes. For more results, please visit the <a href="page1.html" style="font-weight: bold; color: rgb(255, 69, 92);">interactive results</a>.</p>
+  <!-- Instructions with icons -->
+  <div class="instructions" style="margin-top: -1em;">
+    <div class="instruction-item" style="display: flex; align-items: center;">
+      <img src="icons/left-click.png" alt="Left Click" style="margin-right: 0px;">
+      <span>Drag with <em>left</em> click to <strong>rotate</strong> view</span>
+    </div>
+
+    <div class="instruction-item" style="display: flex; align-items: center; margin-top: 10px;">
+      <img src="icons/scroll-wheel.png" alt="Scroll Wheel" style="margin-right: -5px;">
+      <span>Scroll to <strong>zoom</strong> in/out</span>
+    </div>
+
+    <div class="instruction-item" style="display: flex; align-items: center; margin-top: 10px;">
+      <img src="icons/right-click.png" alt="Right Click" style="margin-right: 0px;">
+      <span>Drag with <em>right</em> click to <strong>move</strong> view</span>
+    </div>
+  </div>
+
+  <div class="instructions_small">
+    <div class="instruction-item_small" style="display: flex; align-items: center; margin-top: -15px;">
+      <img src="icons/letter-w.png" alt="W" style="margin-right: -10px;">
+      <img src="icons/letter-s.png" alt="S" style="margin-right: 0px;">
+      <span>Moving forward and backward</span>
+    </div>
+
+    <div class="instruction-item_small" style="display: flex; align-items: center; margin-top: -15px;">
+      <img src="icons/letter-a.png" alt="A" style="margin-right: -10px;">
+      <img src="icons/letter-d.png" alt="D" style="margin-right: 0px;">
+      <span>Moving left and right</span>
+    </div>
+
+    <div class="instruction-item_small" style="display: flex; align-items: center; margin-top: -15px;">
+      <img src="icons/letter-q.png" alt="Q" style="margin-right: -10px;">
+      <img src="icons/letter-e.png" alt="E" style="margin-right: 0px;">
+      <span>Moving upward and downward</span>
+    </div>
+  </div>
+
+  <!-- Downsampling note
+  <p style="text-align: center; font-size: 1em; padding: 0em; color: #555;">
+    (Results are downsampled <strong>4 times</strong> for efficient online rendering)
+  </p> -->
+
+  <!-- Wrapper for iframes -->
+<!-- Wrapper for iframes -->
+<div id="wrapper" style="
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+    ">
+
+  <div style="text-align: center;">
+    <iframe src="./build/?playbackPath=http://127.0.0.1:8000/page_scenes/DL3DV10K_3e6a66ea9536530d688aaaf63fda9229d488a446ba256d113d03f29b0b2e7647_1/DL3DV10K_3e6a66ea9536530d688aaaf63fda9229d488a446ba256d113d03f29b0b2e7647_1.viser&initDistanceScale=1&initHeightOffset=0.0"></iframe>
+    <div style="margin-top: 10px;">Lady Running</div>
+  </div>
+
+  <div style="text-align: center;">
+    <iframe
+      src="./build/?playbackPath=http://127.0.0.1:8000/page_scenes/DL3DV10K_3e6a66ea9536530d688aaaf63fda9229d488a446ba256d113d03f29b0b2e7647_1/DL3DV10K_3e6a66ea9536530d688aaaf63fda9229d488a446ba256d113d03f29b0b2e7647_1.viser&initDistanceScale=1&initHeightOffset=0.0"></iframe>
+    <div style="margin-top: 10px;">Lady Running</div>
+  </div>
+
+    <div style="text-align: center;">
+      <iframe
+        src="./build/?playbackPath=https://MonST3R-project.github.io/recordings/recording_lady-running.viser&initDistanceScale=1&initHeightOffset=0.0"></iframe>
+      <div style="margin-top: 10px;">Lady Running</div>
+    </div>
+    
+    <div style="text-align: center;">
+      <iframe
+        src="./build/?playbackPath=https://MonST3R-project.github.io/recordings/recording_judo.viser&initDistanceScale=0.2&initHeightOffset=0.175"></iframe>
+      <div style="margin-top: 10px;">Judo</div>
+    </div>
+
+</div>
+
+  <!-- End new content -->
+
+  <div class="content">
+    <h2 style="text-align:center;">Abstract</h2>
+    <font size="-0.">
+      <p>
+      In this work, we introduce Promethrus, a 3D-aware latent diffusion model for text-to-3D generation at both object and
+      scene levels in seconds.
+      We formulate 3D scene generation as multi-view, feed-forward, pixel-aligned 3D Gaussian generation within the latent
+      diffusion paradigm.
+      To ensure generalizability, we build our model upon pre-trained text-to-image generation model with only minimal
+      adjustments, and further train it using a large number of images from both single-view and multi-view datasets.
+      Furthermore, we introduce an RGB-D latent space into 3D Gaussian generation to disentangle appearance and geometry
+      information, enabling efficient feed-forward generation of 3D Gaussians with better fidelity and geometry.
+      Extensive experimental results demonstrate the effectiveness of our method in both feed-forward 3D Gaussian
+      reconstruction and text-to-3D generation.
+      </p>
+    <!-- <p>Estimating geometry from dynamic scenes, where objects move and deform over time, remains a core challenge in computer vision. 
+      Current approaches often rely on multi-stage pipelines or global optimizations that decompose the problem into subtasks, like depth and flow, leading to complex systems prone to errors. 
+      In this paper, we present <u>Mo</u>tio<u>n</u> DU<u>St3R</u> (MonST3R), a novel geometry-first approach that directly estimates per-timestep geometry from dynamic scenes.
+      Our key insight is that by simply estimating a pointmap for each timestep, we can effectively adapt DUST3R's representation, previously only used for static scenes, to dynamic scenes.
+      However, this approach presents a significant challenge: the scarcity of suitable training data, namely dynamic, posed videos with depth labels.
+      Despite this, we show that by posing the problem as a fine-tuning task, identifying several suitable datasets, and strategically training the model on this limited data, we can surprisingly enable the model to handle dynamics, even without an explicit motion representation.
+      Based on this, we introduce new optimizations for several downstream video-specific tasks and demonstrate strong performance on video depth and camera pose estimation, outperforming prior work in terms of robustness and efficiency.
+      Moreover, MonST3R shows promising results for primarily feed-forward 4D reconstruction.
+    </p> -->
+
+      <img class="teaser-img" src="./files/teaser_p1.png" style="width:100%;margin-bottom: -10px;">
+  </font>
+  </div>
+
+  <!-- <div class="content">
+    <h2>Pointmap Representation for Dynamic Scene</h2>
+    <p> <strong>DUSt3R's pointmap representation</strong>: estimate xyz coordinates for <strong>two frames</strong>, <strong>aligned in</strong> the camera coordinate system of <strong>the first frame</strong>. <br> ➡️ There is no constraint on dynamic/static scenes in the representation! But how does DUSt3R actually work for dynamic scenes? </p>
+    <img class="summary-img" src="./files/fig2_limitation.png" style="width:100%;margin-bottom: -10px;">
+    <h3>
+      <center>Limitation of DUSt3R on dynamic scenes</center>
+    </h3>
+    <a>
+      <strong>Left</strong>: DUSt3R aligns the moving foreground subject and misaligns the background points as it is only trained on static scenes. 
+      <strong>Right</strong>: DUSt3R fails to estimate the depth of a foreground subject, placing it in the background.
+    </a>
+
+    <p> As this is mainly a <strong>data issue</strong>, we propose a simple approach to adapt DUSt3R to dynamic scenes, by <strong>fine-tuning</strong> on a small set of dynamic videos, which surprisingly works well.</p>
+    <img class="summary-img" src="./files/fig3_finetune_dataset.png" style="width:90%;">
+    <br>
+    <img class="summary-img" src="./files/fig4_fintune_ablation.png" style="width:70%;">
+    <h3>
+      <center>(<em>Top</em>) Training datasets used fine-tuning on dynamic scenes; (<em>Bottom</em>) Ablation study on finetuning</center>
+    </h3>
+  </div> -->
+  
+  <div class="content">
+    <h2>Dynamic Global Point Cloud</h2>
+    <p> For a video input consisting of more than two frames, we can aggregate all the pairwise pointmap results to build a global point cloud. </p>
+    <img class="method-img" src="./files/method.png" style="width:100%;">
+    <h3>
+      <center>Dynamic global point cloud and camera pose estimation</center>
+    </h3>
+    <a>
+      Our training process is divided into two stages. In stage 1, our objective is to train a GS-VAE. Utilizing multi-view images along with their corresponding pseudo depth maps and camera poses, our GS-VAE is designed to encode these multi-view RGB-D images, integrate cross-view information, and ultimately decode them into pixel-aligned 3DGS. In stage
+      2, we focus on training a MV-LDM. We can generate multi-view RGB-D latents by sampling from randomly-sampled noise with
+      trained MV-LDM.
+<!-- 
+      Given a fixed sized of temporal window, we compute pairwise pointmap for each frame pair with MonST3R and optical flow from off-the-shelf method. These intermediates then serve as inputs to optimize a global point cloud X<span style="text-decoration:overline;">̂</span>
+      and per-frame camera poses P<span style="text-decoration:overline;">̂</span> and intrinsics K<span style="text-decoration:overline;">̂</span>. 
+      Video depth can be directly derived from this unified representation. -->
+    </a>
+
+    <!-- <p> The global optimization is based on the following three loss terms: </p>
+    <ul>
+      <li> <strong>Alignment loss</strong>: align the global point cloud of each frame with every pairwise pointmap. </li>
+      <li> <strong>Flow loss</strong>: encourage the projected flow from global pointmaps and camera poses to be consitent with the estimated flow. </li>
+      <li> <strong>Smoothness loss</strong>: enforce the temporal smoothness of camera trajectory. </li>
+    </ul> -->
+  </div>
+
+  <div class="content">
+    <h2>Results - Video Depth</h2>
+    <p> <strong>Quantitatively</strong>, our video depth estimation result is competitive with task-specific methods, even the DepthCrafter released recently. </p>
+    <img class="summary-img" src="./files/fig6_depth_quant.png" style="width:80%;">
+    <p> <strong>Qualitatively</strong>, MonST3R aligns better with the ground truth depth, e.g., the first row in the bonn datsaet below. </p>
+    <img class="summary-img" src="./files/fig7_depth_bonn.png" style="width:80%; margin-top: 2px; margin-bottom: -5px;">
+    <h3>
+      <center>Video depth evaluation on Bonn dataset, predicted depth is after scale&shift alignment</center>
+    </h3>
+    <!-- todo, video depth example from davis -->
+  </div>
+
+  <div class="content">
+    <h2>Results - Camera Pose</h2>
+    <p> <strong>Quantitatively</strong>, our camera pose estimation result is also competitive with task-specific methods. </p>
+    <img class="summary-img" src="./files/fig8_pose_quant.png" style="width:80%;">
+    <p> <strong>Qualitatively</strong>, MonST3R is more robust in challenging scenes, e.g., the cave_2 and temple_3 in Sintel. </p>
+    <img class="summary-img" src="./files/fig9_pose_sintel.png" style="width:100%; margin-top: 2px; margin-bottom: 0px;">
+    <img class="summary-img" src="./files/fig10_pose_scannet.png" style="width:85%; margin-top: 10px; margin-bottom: -5px;">
+    <h3>
+      <center>Camera pose estimation results on Sintel (<em>Top</em>) and Scannet dataset (<em>Bottom</em>)</center>
+    </h3>
+  </div>
+
+  <!-- <div class="content">
+    <h2>Results - Joint Dense Reconstruction & Pose Estimation</h2>
+    <p> <strong>Qualitatively</strong>, MonST3R outputs both reliable camera trajectories and geometry of dynamic scenes. </p>
+    <img class="summary-img" src="./files/fig12_joint.png" style="width:85%; margin-top: 2px; margin-bottom: 0px;">
+    <img class="summary-img" src="./files/fig11_joint.png" style="width:85%; margin-top: 10px; margin-bottom: -5px;">
+    <h3>
+      <center>Joint dense reconstruction and pose estimation results on DAVIS</center>
+    </h3>
+  </div>
+
+  <div class="content">
+    <h2>Results - Pairwise prediction</h2>
+    <p> We also show the results of feed-forward pairwise pointmaps prediction. </p>
+    <img class="summary-img" src="./files/fig13_pairwise.png" style="width:85%; margin-top: 2px; margin-bottom: 10px;">
+    <a>
+      <strong>Row 1</strong> demonstrates that even after fine-tuning, our method retains the ability to handle changing camera intrinsics. <strong>Rows 2 and 3</strong> demonstrate that our
+method can handle “impossible” alignments that two frames have almost no overlap, even in the presence of motion, unlike DUSt3R that misaligns based on the foreground object. <strong>Rows 4 and 5</strong>
+show that in addition to enabling the model to handle motion, our fine-tuning also has improved the model's ability to represent large-scale scenes, where DUSt3R predicts to be flat.
+    </a>
+  </div> -->
+
+  <div class="content">
+    <h2>BibTex</h2>
+    <font size="-0.">
+    <code> @article{zhang2024monst3r,<br>
+    &nbsp;&nbsp;title={MonST3R: A Simple Approach for Estimating Geometry in the Presence of Motion},<br>
+    &nbsp;&nbsp;author={Zhang, Junyi and Herrmann, Charles and Hur, Junhwa and Jampani, Varun and Darrell, Trevor and Cole, Forrester and Sun, Deqing and Yang, Ming-Hsuan},<br>
+    &nbsp;&nbsp;journal={arXiv preprint arxiv:2410.03825},<br>
+    &nbsp;&nbsp;year={2024}<br>
+    } </code>
+  </font>
+  </div>
+  
+  <div class="content" id="acknowledgements">
+    <p><strong>Acknowledgements</strong>:
+      We borrow this template from <a href="https://sd-complements-dino.github.io/">SD+DINO</a>, which is originally from <a href="https://dreambooth.github.io/">DreamBooth</a>. 
+      The interactive 3DGS visualization is inspired by <a href="https://robot-see-robot-do.github.io/">Robot-See-Robot-Do</a>, and powered by <a href="https://github.com/nerfstudio-project/viser">Viser</a>. 
+      We sincerely thank <a href="https://scholar.google.com/citations?hl=en&user=Ecy6lXwAAAAJ">Brent Yi</a> for his support in setting up the online visualization.
+      <!-- Recycling a familiar <a href="https://chail.github.io/latent-composition/">template</a> ;). -->
+    </p>
+  </div>
+</body>
+
+</html>

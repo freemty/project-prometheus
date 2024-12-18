@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Monst3r Results</title>
+  <link rel="icon" href="./icons/monst3r_icon.png" type="image/png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <style>
+    body {
+      padding: 2em;
+      font-family: sans-serif;
+    }
+
+    iframe {
+      border-radius: 0.5em;
+      width: 40em;
+      height: 40em;
+      border: none;
+      box-shadow: 0 0 1em 0em rgba(0, 0, 0, 0.15);
+    }
+
+    @media (max-width: 768px) {
+      iframe {
+        width: 100%;
+        height: 30em;
+      }
+    }
+
+    a,
+    a:link {
+      color: #777;
+    }
+
+    /* Styles for the instruction icons and text */
+    .instructions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2em;
+      text-align: center;
+      padding: 1em;
+    }
+
+    .instruction-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      font-size: 1.5em;
+    }
+
+    .instruction-item img {
+      width: 36px;
+      height: 36px;
+    }
+
+    .instructions_small {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5em;
+      text-align: center;
+      padding: 0.75em;
+    }
+    .instruction-item_small {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      font-size: 1.25em;
+    }
+
+    .instruction-item_small img {
+      width: 30px;
+      height: 30px;
+    }
+  </style>
+  <title>Monst3r Results</title>
+</head>
+
+<body>
+  <!-- Updated prominent message-->
+  <p style="text-align: center; font-size: 1.2em; padding: 0em; font-weight: bold;">
+    Please click on other pages to see more results
+  </p>
+
+  <div style="text-align: center; padding: 1em">
+    <!-- Navigation links -->
+    <a href="page1.html">Page 1</a>
+    &nbsp;&bull;&nbsp;
+    <strong>Page 2</strong>
+    &nbsp;&bull;&nbsp;
+    <a href="page3.html">Page 3</a>
+  </div>
+
+<!-- Updated instructions with icons -->
+<div class="instructions">
+  <div class="instruction-item" style="display: flex; align-items: center;">
+    <!-- Replace 'icons/left-click.png' with the path to your left-click icon -->
+    <img src="icons/left-click.png" alt="Left Click" style="margin-right: 10px;">
+    <span>Drag with <em>left</em> click to <strong>rotate</strong> view</span>
+  </div>
+  
+  <div class="instruction-item" style="display: flex; align-items: center; margin-top: 10px;">
+    <!-- Replace 'icons/scroll-wheel.png' with the path to your scroll wheel icon -->
+    <img src="icons/scroll-wheel.png" alt="Scroll Wheel" style="margin-right: 10px;">
+    <span>Scroll to <strong>zoom</strong> in/out</span>
+  </div>
+  
+  <div class="instruction-item" style="display: flex; align-items: center; margin-top: 10px;">
+    <!-- Replace 'icons/right-click.png' with the path to your right-click icon -->
+    <img src="icons/right-click.png" alt="Right Click" style="margin-right: 10px;">
+    <span>Drag with <em>right</em> click to <strong>move</strong> view</span>
+  </div>
+</div>
+  <div class="instructions_small">
+  <div class="instruction-item_small" style="display: flex; align-items: center; margin-top: -15px;">
+    <!-- Replace 'icons/letter-w.png' with the path to your W key icon -->
+    <img src="icons/letter-w.png" alt="W" style="margin-right: -10px;">
+    <img src="icons/letter-s.png" alt="S" style="margin-right: 0px;">
+    <span>Moving forward and backward</span>
+  </div>
+  
+  <div class="instruction-item_small" style="display: flex; align-items: center; margin-top: -15px;">
+    <!-- Replace 'icons/letter-a.png' with the path to your A key icon -->
+    <img src="icons/letter-a.png" alt="A" style="margin-right: -10px;">
+    <img src="icons/letter-d.png" alt="D" style="margin-right: 0px;">
+    <span>Moving left and right</span>
+  </div>
+  
+  <div class="instruction-item_small" style="display: flex; align-items: center; margin-top: -15px;">
+    <!-- Replace 'icons/letter-q.png' with the path to your Q key icon -->
+    <img src="icons/letter-q.png" alt="Q" style="margin-right: -10px;">
+    <img src="icons/letter-e.png" alt="E" style="margin-right: 0px;">
+    <span>Moving upward and downward</span>
+  </div>
+</div>
+
+  <!-- Add downsampling note -->
+  <p style="text-align: center; font-size: 1em; padding: 0em; color: #555;">
+    (Results are downsampled <strong>4 times</strong> for efficient online rendering)
+  </p>
+
+  <div id="wrapper" style="
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 2em;
+      ">
+    <iframe
+      src="https://MonST3R-project.github.io/build/?playbackPath=https://MonST3R-project.github.io/recordings/recording_lindy-hop.viser&initDistanceScale=0.3&initHeightOffset=0.15"></iframe>
+    <iframe
+      src="https://MonST3R-project.github.io/build/?playbackPath=https://MonST3R-project.github.io/recordings/recording_longboard.viser&initDistanceScale=1.2&initHeightOffset=0.0"></iframe>
+    <iframe
+      src="https://MonST3R-project.github.io/build/?playbackPath=https://MonST3R-project.github.io/recordings/recording_parkour.viser&initDistanceScale=1.1&initHeightOffset=0.05"></iframe>
+    <iframe
+      src="https://MonST3R-project.github.io/build/?playbackPath=https://MonST3R-project.github.io/recordings/recording_rollerblade.viser&initDistanceScale=0.2&initHeightOffset=0.15"></iframe>
+    <iframe
+      src="https://MonST3R-project.github.io/build/?playbackPath=https://MonST3R-project.github.io/recordings/recording_schoolgirls.viser&initDistanceScale=0.2&initHeightOffset=0.15"></iframe>
+    <iframe
+      src="https://MonST3R-project.github.io/build/?playbackPath=https://MonST3R-project.github.io/recordings/recording_soapbox.viser&initDistanceScale=1.1&initHeightOffset=0.0"></iframe>
+  </div>
+</body>
+
+</html>
