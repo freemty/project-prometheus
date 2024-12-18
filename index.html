@@ -182,8 +182,10 @@
 <div class="content">
     <h2>Interactive 3D Scene Visualization</h2>
     <!-- <p>Explore the text-to-3D generation results of <strong><span style="font-weight: bold; color: rgb(255, 69, 92);">Prometheus🔥</span></strong> on various scenes. For more results, please visit the <a href="page1.html" style="font-weight: bold; color: rgb(255, 69, 92);">interactive results</a>.</p> -->
+    <font size="+1">
     <p>Explore the text-to-3D generation results of <strong><span
               style="font-weight: bold; color: rgb(255, 69, 92);">Prometheus🔥</span></strong> on various scenes.</p>
+    </font>
   <!-- Instructions with icons -->
   <div class="instructions" style="margin-top: -1em;">
     <div class="instruction-item" style="display: flex; align-items: center;">
@@ -224,7 +226,7 @@
 
   Downsampling note
   <p style="text-align: center; font-size: 1em; padding: 0em; color: #555;">
-    (Results are pruned to no more than 200K gaussian primitives for efficient online rendering)
+    (Results are pruned to no more than 200K 3DGS primitives for efficient online rendering)
   </p>
 
   <!-- Wrapper for iframes -->
@@ -234,8 +236,23 @@
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      gap: 1em;
+      gap: 2em;
     ">
+
+    <div style="text-align: center; flex: 1 1 45%;">
+      <iframe
+        src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/A_bridge_spans_across_the_width_of_the_image,_connecting_two_sides_separated_by_water._The_scene_is_dominated_by_gray_an/0/A_bridge_spans_across_the_width_of_the_image,_connecting_two_sides_separated_by_water._The_scene_is_dominated_by_gray_an.viser"></iframe>
+      <div style="margin-top: 10px;"><strong>[Generation]</strong> <i>A bridge spans across the width of the image,
+          connecting two sides separated by water</i></div>
+    </div>
+    
+    <div style="text-align: center; flex: 1 1 45%;">
+      <iframe
+        src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/The_image_shows_a_desert_landscape_with_uneven_ground_and_a_dusty_appearance._A_building_is_visible_in_the_background,_f/0/The_image_shows_a_desert_landscape_with_uneven_ground_and_a_dusty_appearance._A_building_is_visible_in_the_background,_f.viser"></iframe>
+      <div style="margin-top: 10px;"><strong>[Generation]</strong> <i>A desert landscape with uneven ground and a dusty
+          appearance. A building is visible in the background</i></div>
+    </div>
+
 
   <div style="text-align: center; flex: 1 1 45%;">
     <iframe src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/DL3DV10K_3e6a66ea9536530d688aaaf63fda9229d488a446ba256d113d03f29b0b2e7647_1/DL3DV10K_3e6a66ea9536530d688aaaf63fda9229d488a446ba256d113d03f29b0b2e7647_1.viser"></iframe>
@@ -248,18 +265,8 @@
     <div style="margin-top: 10px;"><strong>[Generation]</strong> <i>A large, white luxury yacht floats serenely above the calm waters of an ocean, surrounded by a hazy atmosphere</div>
   </div> 
 
-    <div style="text-align: center; flex: 1 1 45%;">
-      <iframe
-        src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/A_bridge_spans_across_the_width_of_the_image,_connecting_two_sides_separated_by_water._The_scene_is_dominated_by_gray_an/0/A_bridge_spans_across_the_width_of_the_image,_connecting_two_sides_separated_by_water._The_scene_is_dominated_by_gray_an.viser"></iframe>
-      <div style="margin-top: 10px;"><strong>[Generation]</strong> <i>A bridge spans across the width of the image, connecting two sides separated by water</i></div>
-    </div>
-    
-    <div style="text-align: center; flex: 1 1 45%;">
-      <iframe
-        src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/The_image_shows_a_desert_landscape_with_uneven_ground_and_a_dusty_appearance._A_building_is_visible_in_the_background,_f/0/The_image_shows_a_desert_landscape_with_uneven_ground_and_a_dusty_appearance._A_building_is_visible_in_the_background,_f.viser"></iframe>
-      <div style="margin-top: 10px;"><strong>[Generation]</strong> <i>A desert landscape with uneven ground and a dusty appearance. A building is visible in the background</i></div>
-    </div> 
   </div>
+
 </div>
 
   <!-- End new content -->
