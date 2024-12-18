@@ -158,22 +158,25 @@
     <br>
 
     <a style="text-align:center">
-      <font size="+1">
-        <strong>MonST3R</strong> processes a dynamic video to produce a time-varying dynamic point cloud, along with per-frame camera poses and intrinsics, in a predominantly <strong>feed-forward</strong> manner. This representation then enables the efficient computation of downstream tasks, such as video depth estimation and dynamic/static scene segmentation.
+      <font size="+1.5">
+        We present a novel method for feed-forward scene-level 3D generation. At its core, our approach <em>harnesses
+        the power of 2D priors to fuel generalizable and efficient 3D synthesis </em>– hence our name, <strong><span style="font-weight: bold; color: rgb(255, 69, 92);">Prometheus🔥</span></strong>.
+
       </font>
-    </a>
+    
     <font size="+2">
       <p style="text-align: center;">
-        <a href="https://github.com/Junyi42/monst3r" target="_blank">[Paper]</a> &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="./files/prometheus_paper.pdf" target="_blank">[Paper]</a> &nbsp;&nbsp;&nbsp;&nbsp;
         <!-- <a href="https://github.com/Junyi42/monst3r" target="_blank">[Arxiv]</a> &nbsp;&nbsp;&nbsp;&nbsp; -->
-        <a href="page1.html" target="_blank" style="font-weight: bold; color: rgb(255, 69, 92);">[Interactive Results🔥]</a> &nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="https://github.com/Junyi42/monst3r" target="_blank">[Code]</a>&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="https://x.com/junyi42/status/1770799360353145037" target="_blank">[X Post]</a>&nbsp;&nbsp;&nbsp;&nbsp;
-        <!-- <a href="https://www.youtube.com/watch?v=fyhg50qlNW8" target="_blank">[Video]</a>&nbsp;&nbsp;&nbsp;&nbsp; -->
+        <a href="page1.html" target="_blank" style="font-weight: bold; color: rgb(255, 69, 92);">[Interactive Results🔥]</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/XDimLab/Prometheus" target="_blank">[Code]</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- <a href="https://x.com/junyi42/status/1770799360353145037" target="_blank">[X Post]</a>&nbsp;&nbsp;&nbsp;&nbsp; -->
+        <a href="https://www.youtube.com/watch?v=fyhg50qlNW8" target="_blank">[Video]</a>&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="files/bibtex.txt" target="_blank">[BibTeX]</a>
       </p>
     </font>
-  </div>
+    </div>
 
   <!-- Begin new content: Demos -->
 <div class="content">
@@ -231,7 +234,7 @@
       align-items: center;
       gap: 1em;
     ">
-
+<!-- 
   <div style="text-align: center;">
     <iframe src="./build/?playbackPath=http://127.0.0.1:8000/page_scenes/DL3DV10K_3e6a66ea9536530d688aaaf63fda9229d488a446ba256d113d03f29b0b2e7647_1/DL3DV10K_3e6a66ea9536530d688aaaf63fda9229d488a446ba256d113d03f29b0b2e7647_1.viser&initDistanceScale=1&initHeightOffset=0.0"></iframe>
     <div style="margin-top: 10px;">Lady Running</div>
@@ -253,17 +256,17 @@
       <iframe
         src="./build/?playbackPath=https://MonST3R-project.github.io/recordings/recording_judo.viser&initDistanceScale=0.2&initHeightOffset=0.175"></iframe>
       <div style="margin-top: 10px;">Judo</div>
-    </div>
-
+    </div> -->
+  </div>
 </div>
 
   <!-- End new content -->
 
   <div class="content">
     <h2 style="text-align:center;">Abstract</h2>
-    <font size="-0.">
+    <font size="+1">
       <p>
-      In this work, we introduce Promethrus, a 3D-aware latent diffusion model for text-to-3D generation at both object and
+      In this work, we introduce <strong><span style="font-weight: bold; color: rgb(255, 69, 92);">Prometheus🔥</span></strong>, a 3D-aware latent diffusion model for text-to-3D generation at both object and
       scene levels in seconds.
       We formulate 3D scene generation as multi-view, feed-forward, pixel-aligned 3D Gaussian generation within the latent
       diffusion paradigm.
@@ -284,7 +287,7 @@
       Moreover, MonST3R shows promising results for primarily feed-forward 4D reconstruction.
     </p> -->
 
-      <img class="teaser-img" src="./files/teaser_p1.png" style="width:100%;margin-bottom: -10px;">
+      <img class="teaser-img" src="./files/teaser_p1.jpg" style="width:100%;margin-bottom: -10px;">
   </font>
   </div>
 
@@ -310,21 +313,21 @@
   </div> -->
   
   <div class="content">
-    <h2>Dynamic Global Point Cloud</h2>
-    <p> For a video input consisting of more than two frames, we can aggregate all the pairwise pointmap results to build a global point cloud. </p>
-    <img class="method-img" src="./files/method.png" style="width:100%;">
-    <h3>
+    <h2 style="text-align:center;">Method</h2>
+    <!-- <p> For a video input consisting of more than two frames, we can aggregate all the pairwise pointmap results to build a global point cloud. </p> -->
+    <img class="method-img" src="./files/method.jpg" style="width:100%;">
+    <!-- <h3>
       <center>Dynamic global point cloud and camera pose estimation</center>
-    </h3>
-    <a>
-      Our training process is divided into two stages. In stage 1, our objective is to train a GS-VAE. Utilizing multi-view images along with their corresponding pseudo depth maps and camera poses, our GS-VAE is designed to encode these multi-view RGB-D images, integrate cross-view information, and ultimately decode them into pixel-aligned 3DGS. In stage
-      2, we focus on training a MV-LDM. We can generate multi-view RGB-D latents by sampling from randomly-sampled noise with
+    </h3> -->
+    <font size="+1">
+      <strong>Method Overview:</strong> Our training process is divided into two stages. In stage 1, our objective is to train a <strong>GS-VAE</strong>. Utilizing multi-view images along with their corresponding pseudo depth maps and camera poses, our GS-VAE is designed to encode these multi-view RGB-D images, integrate cross-view information, and ultimately decode them into pixel-aligned 3DGS. In stage
+      2, we focus on training a <strong>MV-LDM</strong>. We can generate multi-view RGB-D latents by sampling from randomly-sampled noise with
       trained MV-LDM.
+    </font>
 <!-- 
       Given a fixed sized of temporal window, we compute pairwise pointmap for each frame pair with MonST3R and optical flow from off-the-shelf method. These intermediates then serve as inputs to optimize a global point cloud X<span style="text-decoration:overline;">̂</span>
       and per-frame camera poses P<span style="text-decoration:overline;">̂</span> and intrinsics K<span style="text-decoration:overline;">̂</span>. 
       Video depth can be directly derived from this unified representation. -->
-    </a>
 
     <!-- <p> The global optimization is based on the following three loss terms: </p>
     <ul>
@@ -335,27 +338,35 @@
   </div>
 
   <div class="content">
-    <h2>Results - Video Depth</h2>
-    <p> <strong>Quantitatively</strong>, our video depth estimation result is competitive with task-specific methods, even the DepthCrafter released recently. </p>
-    <img class="summary-img" src="./files/fig6_depth_quant.png" style="width:80%;">
-    <p> <strong>Qualitatively</strong>, MonST3R aligns better with the ground truth depth, e.g., the first row in the bonn datsaet below. </p>
-    <img class="summary-img" src="./files/fig7_depth_bonn.png" style="width:80%; margin-top: 2px; margin-bottom: -5px;">
-    <h3>
-      <center>Video depth evaluation on Bonn dataset, predicted depth is after scale&shift alignment</center>
-    </h3>
-    <!-- todo, video depth example from davis -->
+    <h2>Stage1 Results: Feed-forward 3D Reconstruction</h2>
+    <img class="summary-img" src="./files/stage1_quantitative.png" style="width:90%;">
+    <p> <strong>Quantitatively</strong>: We compare our GS-VAE with baselines for generalizable reconstruction on <i>Tartanair</i>. </p>
+
+    <img class="summary-img" src="./files/stage1_qualitative.png" style="width:100%; margin-top: 2px; margin-bottom: -5px;">
+    <p> <strong>Qualitatively</strong>: We compare <strong><span style="font-weight: bold; color: rgb(255, 69, 92);">Prometheus🔥</span></strong> against baselines under varying difficulty settings. As overlap gradually decreases, the advantages of our method continue to grow. Moreover, as shown in the depth map, our method exhibits superior geometry quality across all settings.</p>
   </div>
 
   <div class="content">
-    <h2>Results - Camera Pose</h2>
-    <p> <strong>Quantitatively</strong>, our camera pose estimation result is also competitive with task-specific methods. </p>
-    <img class="summary-img" src="./files/fig8_pose_quant.png" style="width:80%;">
-    <p> <strong>Qualitatively</strong>, MonST3R is more robust in challenging scenes, e.g., the cave_2 and temple_3 in Sintel. </p>
-    <img class="summary-img" src="./files/fig9_pose_sintel.png" style="width:100%; margin-top: 2px; margin-bottom: 0px;">
-    <img class="summary-img" src="./files/fig10_pose_scannet.png" style="width:85%; margin-top: 10px; margin-bottom: -5px;">
-    <h3>
-      <center>Camera pose estimation results on Sintel (<em>Top</em>) and Scannet dataset (<em>Bottom</em>)</center>
-    </h3>
+    <h2>Stage2 Results: Text-to-3D Genetaion</h2>
+
+    <img class="summary-img" src="./files/stage2_quantitative.png" style="width:100%;">
+    <p> <strong>Quantitatively</strong>: We compare <strong><span
+              style="font-weight: bold; color: rgb(255, 69, 92);">Prometheus🔥</span></strong> with baselines for text-to-3D
+          generation utilizing text prompts from <i>T3Bench</i>. </p>
+
+    <img class="summary-img" src="./files/stage2_qualitative.png" style="width:100%; margin-top: 2px; margin-bottom: 0px;">
+    <p> <strong>Qualitatively (Object-level)</strong>: <strong><span
+              style="font-weight: bold; color: rgb(255, 69, 92);">Prometheus🔥</span></strong> generates objects that align with
+          the given
+          description, incorporating rich background information and intricate details. </p>
+
+    <img class="summary-img" src="./files/stage2_scenelevel.png" style="width:100%; margin-top: 2px; margin-bottom: 0px;">
+    <p> <strong>Qualitatively (Scene-level)</strong>: Comparing with Director3D, our result better aligns with the text prompt and captures more details. </p>
+    <!-- <p> <strong> More Text-to-3D Results </strong></p> -->
+
+    <img class="summary-img" src="./files/teaser_p2.jpg" style="width:100%; margin-top: 10px; margin-bottom: -5px;">
+    <h3 style="text-align:center;">More Text-to-3D Results</h3>
+
   </div>
 
   <!-- <div class="content">
@@ -382,10 +393,10 @@ show that in addition to enabling the model to handle motion, our fine-tuning al
   <div class="content">
     <h2>BibTex</h2>
     <font size="-0.">
-    <code> @article{zhang2024monst3r,<br>
-    &nbsp;&nbsp;title={MonST3R: A Simple Approach for Estimating Geometry in the Presence of Motion},<br>
-    &nbsp;&nbsp;author={Zhang, Junyi and Herrmann, Charles and Hur, Junhwa and Jampani, Varun and Darrell, Trevor and Cole, Forrester and Sun, Deqing and Yang, Ming-Hsuan},<br>
-    &nbsp;&nbsp;journal={arXiv preprint arxiv:2410.03825},<br>
+    <code> @article{yang2024prometheus,<br>
+    &nbsp;&nbsp;title={Prometheus: 3D-Aware Latent Diffusion Models for Feed-Forward Text-to-3D Scene Generation},<br>
+    &nbsp;&nbsp;author={Yuanbo, Yang and Jiahao, Shap and Xinyang, Li and Yujun, Shen and Andreas, Geiger and Yiyi, Liao},<br>
+    <!-- &nbsp;&nbsp;journal={arXiv preprint arxiv:2410.03825},<br> -->
     &nbsp;&nbsp;year={2024}<br>
     } </code>
   </font>
@@ -393,7 +404,7 @@ show that in addition to enabling the model to handle motion, our fine-tuning al
   
   <div class="content" id="acknowledgements">
     <p><strong>Acknowledgements</strong>:
-      We borrow this template from <a href="https://sd-complements-dino.github.io/">SD+DINO</a>, which is originally from <a href="https://dreambooth.github.io/">DreamBooth</a>. 
+      We borrow this template from <a href="https://sd-complements-dino.github.io/">monst3R</a>, which is originally from <a href="https://dreambooth.github.io/">DreamBooth</a>. 
       The interactive 3DGS visualization is inspired by <a href="https://robot-see-robot-do.github.io/">Robot-See-Robot-Do</a>, and powered by <a href="https://github.com/nerfstudio-project/viser">Viser</a>. 
       We sincerely thank <a href="https://scholar.google.com/citations?hl=en&user=Ecy6lXwAAAAJ">Brent Yi</a> for his support in setting up the online visualization.
       <!-- Recycling a familiar <a href="https://chail.github.io/latent-composition/">template</a> ;). -->
