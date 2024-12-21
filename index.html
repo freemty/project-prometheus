@@ -93,6 +93,27 @@
       width: 30px;
       height: 30px;
     }
+
+    /* New styles for clickable images and iframe display */
+    .clickable-image {
+      max-width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      cursor: pointer;
+      border-radius: 0.5em;
+      box-shadow: 0 0 1em 0em rgba(0, 0, 0, 0.15);
+    }
+
+    #iframe-display-section {
+      margin-top: 2em;
+      text-align: center;
+      border: 1px solid #ddd;
+      padding: 1em;
+      background-color: #f9f9f9;
+      border-radius: 0.5em;
+      box-shadow: 0 0 1em 0em rgba(0, 0, 0, 0.15);
+    }
+
   </style>
   <!-- End new styles -->
 </head>
@@ -177,17 +198,15 @@
       </p>
     </font>
     </div>
-
-  <!-- Begin new content: Demos -->
 <div class="content">
-    <h2>Interactive 3D Scene Visualization</h2>
-    <!-- <p>Explore the text-to-3D generation results of <strong><span style="font-weight: bold; color: rgb(255, 69, 92);">Prometheus🔥</span></strong> on various scenes. For more results, please visit the <a href="page1.html" style="font-weight: bold; color: rgb(255, 69, 92);">interactive results</a>.</p> -->
-    <font size="+1">
+  <h2>Interactive 3D Scene Visualization</h2>
+  <font size="+1">
     <p>Explore the text-to-3D generation results of <strong><span
-              style="font-weight: bold; color: rgb(255, 69, 92);">Prometheus🔥</span></strong> on various scenes.</p>
-    </font>
+          style="font-weight: bold; color: rgb(255, 69, 92);">Prometheus🔥</span></strong> on various scenes.</p>
+  </font>
+
   <!-- Instructions with icons -->
-  <div class="instructions" style="margin-top: -1em;">
+  <!-- <div class="instructions" style="margin-top: -1em;">
     <div class="instruction-item" style="display: flex; align-items: center;">
       <img src="icons/left-click.png" alt="Left Click" style="margin-right: 0px;">
       <span>Drag with <em>left</em> click to <strong>rotate</strong> view</span>
@@ -222,52 +241,122 @@
       <img src="icons/letter-e.png" alt="E" style="margin-right: 0px;">
       <span>Moving upward and downward</span>
     </div>
-  </div>
+  </div> -->
 
-  Downsampling note
-  <p style="text-align: center; font-size: 1em; padding: 0em; color: #555;">
+  <!-- Downsampling note -->
+  <!-- <p style="text-align: center; font-size: 1em; padding: 0em; color: #555;">
     (Results are pruned to no more than 200K 3DGS primitives for efficient online rendering)
-  </p>
+  </p> -->
 
-  <!-- Wrapper for iframes -->
-<!-- Wrapper for iframes -->
-<div id="wrapper" style="
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 2em;
+  <!-- Top section: Images and captions -->
+  <div id="image-captions-section" style="
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 2em;
     ">
+    <!-- First item -->
+    <div class="image-caption-item" style="text-align: center; flex: 1 1 45%;">
+      <div style="margin-top: 10px;"><strong>[Generation]</strong> <i>A bridge spans across the width of the image, connecting two sides separated by water⛰️</i></div>
+      <img src="recordings/A_bridge_spans_across_the_width_of_the_image,_connecting_two_sides_separated_by_water._The_scene_is_dominated_by_gray_an/0/image.png" alt="Thumbnail 1" class="clickable-image"
+        data-iframe-src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/A_bridge_spans_across_the_width_of_the_image,_connecting_two_sides_separated_by_water._The_scene_is_dominated_by_gray_an/0/A_bridge_spans_across_the_width_of_the_image,_connecting_two_sides_separated_by_water._The_scene_is_dominated_by_gray_an.viser">
 
-    <div style="text-align: center; flex: 1 1 45%;">
-      <iframe
-        src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/A_bridge_spans_across_the_width_of_the_image,_connecting_two_sides_separated_by_water._The_scene_is_dominated_by_gray_an/0/A_bridge_spans_across_the_width_of_the_image,_connecting_two_sides_separated_by_water._The_scene_is_dominated_by_gray_an.viser"></iframe>
+    </div>
+
+    <!-- Second item -->
+    <div class="image-caption-item" style="text-align: center; flex: 1 1 45%;">
+        <div style="margin-top: 10px;"><strong>[Generation]</strong> <i>A desert landscape with uneven ground and a dusty appearance. A building is visible in the background🏜️</i></div>
+      <img src="recordings/The_image_shows_a_desert_landscape_with_uneven_ground_and_a_dusty_appearance._A_building_is_visible_in_the_background,_f/0/image.png" alt="Thumbnail 2" class="clickable-image"
+        data-iframe-src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/The_image_shows_a_desert_landscape_with_uneven_ground_and_a_dusty_appearance._A_building_is_visible_in_the_background,_f/0/The_image_shows_a_desert_landscape_with_uneven_ground_and_a_dusty_appearance._A_building_is_visible_in_the_background,_f.viser">
+
+    </div>
+
+    <div class="image-caption-item" style="text-align: center; flex: 1 1 45%;">
       <div style="margin-top: 10px;"><strong>[Generation]</strong> <i>A bridge spans across the width of the image,
           connecting two sides separated by water</i></div>
+      <img
+        src="recordings/A_bridge_spans_across_the_width_of_the_image,_connecting_two_sides_separated_by_water._The_scene_is_dominated_by_gray_an/0/image.png"
+        alt="Thumbnail 1" class="clickable-image"
+        data-iframe-src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/A_bridge_spans_across_the_width_of_the_image,_connecting_two_sides_separated_by_water._The_scene_is_dominated_by_gray_an/0/A_bridge_spans_across_the_width_of_the_image,_connecting_two_sides_separated_by_water._The_scene_is_dominated_by_gray_an.viser">
+    
     </div>
     
-    <div style="text-align: center; flex: 1 1 45%;">
-      <iframe
-        src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/The_image_shows_a_desert_landscape_with_uneven_ground_and_a_dusty_appearance._A_building_is_visible_in_the_background,_f/0/The_image_shows_a_desert_landscape_with_uneven_ground_and_a_dusty_appearance._A_building_is_visible_in_the_background,_f.viser"></iframe>
+    <!-- Second item -->
+    <div class="image-caption-item" style="text-align: center; flex: 1 1 45%;">
       <div style="margin-top: 10px;"><strong>[Generation]</strong> <i>A desert landscape with uneven ground and a dusty
           appearance. A building is visible in the background</i></div>
+      <img
+        src="recordings/The_image_showcases_a_store_shelf_displaying_various_skincare_products._A_prominent_bottle_of_cleansing_lotion_is_featur/0/image.png"
+        alt="Thumbnail 2" class="clickable-image"
+        data-iframe-src="https://jiahao-shao1.github.io/build/?playbackPath=http://127.0.0.1:8000/A_bedroom_contains_a_bookshelf_and_closet_with_open_shelves_filled_with_books_of_various_sizes._The_bed_is_partially_vis/0/viser.viser">
+    
     </div>
 
-
-  <div style="text-align: center; flex: 1 1 45%;">
-    <iframe src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/DL3DV10K_3e6a66ea9536530d688aaaf63fda9229d488a446ba256d113d03f29b0b2e7647_1/DL3DV10K_3e6a66ea9536530d688aaaf63fda9229d488a446ba256d113d03f29b0b2e7647_1.viser"></iframe>
-    <div style="margin-top: 10px;"><strong>[Reconstruction]</strong> Feed-forward reconstruction from 4-view input</div>
+    <!-- Add more items as needed -->
   </div>
 
-  <div style="text-align: center; flex: 1 1 45%;">
-    <iframe
-      src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/A_large,_white_luxury_yacht_floats_serenely_above_the_calm_waters_of_an_ocean,_surrounded_by_a_hazy_atmosphere_that_give/0/A_large,_white_luxury_yacht_floats_serenely_above_the_calm_waters_of_an_ocean,_surrounded_by_a_hazy_atmosphere_that_give.viser"></iframe>
-    <div style="margin-top: 10px;"><strong>[Generation]</strong> <i>A large, white luxury yacht floats serenely above the calm waters of an ocean, surrounded by a hazy atmosphere</div>
-  </div> 
+  <!-- Bottom section: Iframe display area -->
+  <div id="iframe-display-section" style="
+        margin-top: 2em;
+        text-align: center;
+        border: 1px solid #ddd;
+        padding: 1em;
+        background-color: #f9f9f9;
+    ">
+    <h3>Interactive 3D Scene</h3>
+      <div class="instructions" style="margin-top: -1em;">
+        <div class="instruction-item" style="display: flex; align-items: center;">
+          <img src="icons/left-click.png" alt="Left Click" style="margin-right: 0px;">
+          <span>Drag with <em>left</em> click to <strong>rotate</strong> view</span>
+        </div>
+      
+        <div class="instruction-item" style="display: flex; align-items: center; margin-top: 10px;">
+          <img src="icons/scroll-wheel.png" alt="Scroll Wheel" style="margin-right: -5px;">
+          <span>Scroll to <strong>zoom</strong> in/out</span>
+        </div>
+      
+        <div class="instruction-item" style="display: flex; align-items: center; margin-top: 10px;">
+          <img src="icons/right-click.png" alt="Right Click" style="margin-right: 0px;">
+          <span>Drag with <em>right</em> click to <strong>move</strong> view</span>
+        </div>
+      </div>
+      
+      <div class="instructions_small">
+        <div class="instruction-item_small" style="display: flex; align-items: center; margin-top: -15px;">
+          <img src="icons/letter-w.png" alt="W" style="margin-right: -10px;">
+          <img src="icons/letter-s.png" alt="S" style="margin-right: 0px;">
+          <span>Moving forward and backward</span>
+        </div>
+      
+        <div class="instruction-item_small" style="display: flex; align-items: center; margin-top: -15px;">
+          <img src="icons/letter-a.png" alt="A" style="margin-right: -10px;">
+          <img src="icons/letter-d.png" alt="D" style="margin-right: 0px;">
+          <span>Moving left and right</span>
+        </div>
+      
+        <div class="instruction-item_small" style="display: flex; align-items: center; margin-top: -15px;">
+          <img src="icons/letter-q.png" alt="Q" style="margin-right: -10px;">
+          <img src="icons/letter-e.png" alt="E" style="margin-right: 0px;">
+          <span>Moving upward and downward</span>
+        </div>
+      </div>
 
+
+    <iframe id="iframe-display" style="width: 100%; height: 500px; border: none;"></iframe>
   </div>
-
 </div>
+
+  <script>
+    // JavaScript to handle the click event and load the iframe
+    document.querySelectorAll('.clickable-image').forEach(image => {
+      image.addEventListener('click', function () {
+        const iframeSrc = this.getAttribute('data-iframe-src'); // Get the iframe source from the data attribute
+        const iframeDisplay = document.getElementById('iframe-display');
+        iframeDisplay.src = iframeSrc; // Set the iframe source
+      });
+    });
+  </script>
 
   <!-- End new content -->
 
