@@ -2,8 +2,12 @@
 <html lang="en">
 
 <head>
-  <title>Monst3r Results</title>
-  <link rel="icon" href="./icons/monst3r_icon.png" type="image/png">
+  <title>Prometheus🔥 Feedforward Text-to-3D Results</title>
+  <link rel="icon" href="./icons/prometheus_icon.png" type="image/png">
+  <link href="./files/style.css" rel="stylesheet">
+  <link rel="icon" href="icons/prometheus_icon.png" type="image/png">
+  <script type="text/javascript" src="./files/jquery.mlens-1.0.min.js"></script>
+  <script type="text/javascript" src="./files/jquery.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
   <style>
@@ -38,7 +42,7 @@
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      gap: 2em;
+      gap: 1.2em;
       text-align: center;
       padding: 1em;
     }
@@ -47,7 +51,7 @@
       display: flex;
       align-items: center;
       gap: 0.5em;
-      font-size: 1.5em;
+      font-size: 1.2em;
     }
 
     .instruction-item img {
@@ -68,25 +72,58 @@
       display: flex;
       align-items: center;
       gap: 0.5em;
-      font-size: 1.25em;
+      font-size: 1.0em;
     }
 
     .instruction-item_small img {
       width: 30px;
       height: 30px;
     }
+
+    .image-caption-item {
+      text-align: center; 
+      flex: 1 1 45%;
+      font-size: 0.8em;
+    }
+    /* New styles for clickable images and iframe display */
+    .clickable-image {
+      max-width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      cursor: pointer;
+      border-radius: 0.5em;
+      box-shadow: 0 0 1em 0em rgba(0, 0, 0, 0.15);
+    }
+
+    #iframe-display-section {
+      margin-top: 2em;
+      text-align: center;
+      border: 1px solid #ddd;
+      padding: 1em;
+      background-color: #f9f9f9;
+      border-radius: 0.5em;
+      box-shadow: 0 0 1em 0em rgba(0, 0, 0, 0.15);
+    }
   </style>
-  <title>Monst3r Results</title>
+  <title>Prometheus Results</title>
 </head>
 
 <body>
-  <!-- Updated prominent message-->
+  <!-- Title -->
+  <h1 style="line-height: 0.75;">
+    <!-- <img src="./icons/prometheus_icon_full.png" alt="Prometheus Icon" style="width: 640px; vertical-align: middle;"><br> -->
+    <img src="./icons/prometheus_icon_wbg.png" alt="Prometheus Icon" style="width: 80px; vertical-align: middle;">
+    <strong>
+      <span style="font-weight: bold; color: rgb(255, 69, 92);"> Prometheus</span>
+      : 3D-Aware Latent Diffusion Models for <br> Feed-Forward Text-to-3D Scene Generation</strong>
+  </h1>
+
+  <!-- Updated prominent message in English -->
   <p style="text-align: center; font-size: 1.2em; padding: 0em; font-weight: bold;">
     Please click on other pages to see more results
   </p>
 
   <div style="text-align: center; padding: 1em">
-    <!-- Navigation links -->
     <a href="page1.html">Page 1</a>
     &nbsp;&bull;&nbsp;
     <a href="page2.html">Page 2</a>
@@ -95,72 +132,303 @@
   </div>
 
 <!-- Updated instructions with icons -->
-<div class="instructions">
-  <div class="instruction-item" style="display: flex; align-items: center;">
-    <!-- Replace 'icons/left-click.png' with the path to your left-click icon -->
-    <img src="icons/left-click.png" alt="Left Click" style="margin-right: 10px;">
-    <span>Drag with <em>left</em> click to <strong>rotate</strong> view</span>
-  </div>
-  
-  <div class="instruction-item" style="display: flex; align-items: center; margin-top: 10px;">
-    <!-- Replace 'icons/scroll-wheel.png' with the path to your scroll wheel icon -->
-    <img src="icons/scroll-wheel.png" alt="Scroll Wheel" style="margin-right: 10px;">
-    <span>Scroll to <strong>zoom</strong> in/out</span>
-  </div>
-  
-  <div class="instruction-item" style="display: flex; align-items: center; margin-top: 10px;">
-    <!-- Replace 'icons/right-click.png' with the path to your right-click icon -->
-    <img src="icons/right-click.png" alt="Right Click" style="margin-right: 10px;">
-    <span>Drag with <em>right</em> click to <strong>move</strong> view</span>
-  </div>
-</div>
-  <div class="instructions_small">
-  <div class="instruction-item_small" style="display: flex; align-items: center; margin-top: -15px;">
-    <!-- Replace 'icons/letter-w.png' with the path to your W key icon -->
-    <img src="icons/letter-w.png" alt="W" style="margin-right: -10px;">
-    <img src="icons/letter-s.png" alt="S" style="margin-right: 0px;">
-    <span>Moving forward and backward</span>
-  </div>
-  
-  <div class="instruction-item_small" style="display: flex; align-items: center; margin-top: -15px;">
-    <!-- Replace 'icons/letter-a.png' with the path to your A key icon -->
-    <img src="icons/letter-a.png" alt="A" style="margin-right: -10px;">
-    <img src="icons/letter-d.png" alt="D" style="margin-right: 0px;">
-    <span>Moving left and right</span>
-  </div>
-  
-  <div class="instruction-item_small" style="display: flex; align-items: center; margin-top: -15px;">
-    <!-- Replace 'icons/letter-q.png' with the path to your Q key icon -->
-    <img src="icons/letter-q.png" alt="Q" style="margin-right: -10px;">
-    <img src="icons/letter-e.png" alt="E" style="margin-right: 0px;">
-    <span>Moving upward and downward</span>
-  </div>
-</div>
+  <!--Iframe display area -->
+  <div class="content" style="width: 1000px;
+  "
+  >
+    <h2>Prometheus🔥 Feedforward Text-to-3D Interactive Visualization</h2>
+    <font size="+1">
+      <p>Explore the text-to-3D generation results of <strong><span
+            style="font-weight: bold; color: rgb(255, 69, 92);">Prometheus🔥</span></strong> on various scenes. You can select a scene by clicking the
+            corresponding multiview image.</p>
+    </font>
 
-  <!-- Add downsampling note -->
-  <p style="text-align: center; font-size: 1em; padding: 0em; color: #555;">
-    (Results are downsampled <strong>4 times</strong> for efficient online rendering)
-  </p>
+    <!-- Top section: Images and captions -->
+    <div id="image-captions-section" style="
+                  display: flex;
+                  flex-wrap: wrap;
+                  justify-content: center;
+                  align-items: center;
+                  font-size: 1.5em;
+                  gap: 1em;
+              ">
+    
+      <!-- <div class="image-caption-item">
+        <div style="margin-top: 10px;"><i>A store shelf displaying various skincare product🧼</i></div>
+        <img
+          src="recordings/The_image_showcases_a_store_shelf_displaying_various_skincare_products._A_prominent_bottle_of_cleansing_lotion_is_featur/0/image.png"
+          alt="Thumbnail 1" class="clickable-image"
+          data-iframe-src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/The_image_showcases_a_store_shelf_displaying_various_skincare_products._A_prominent_bottle_of_cleansing_lotion_is_featur/0/viser.viser">
+    
+      </div>
+    
+      
+      <div class="image-caption-item">
+        <div style="margin-top: 10px;"><i>A desert landscape with uneven ground and a dusty
+            appearance. A building is visible in the background</i></div>
+        <img
+          src="recordings/The_scene_shows_a_signboard_with_graffiti_located_on_a_metal_post_near_the_water._Several_small_s/0/image.png"
+          alt="Thumbnail 2" class="clickable-image"
+          data-iframe-src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/The_scene_shows_a_signboard_with_graffiti_located_on_a_metal_post_near_the_water._Several_small_s/0/viser.viser">
+    
+      </div>
+    
+      
+      <div class="image-caption-item">
+        <div style="margin-top: 10px;"><i>The living room features a brown leather sofa positioned against a wall adorned with art🛋️</i></div>
+        <img
+          src="recordings/The_living_room_features_a_brown_leather_sofa_positioned_against_a_wall_adorned_with_art._A_wooden_coffee_table_is_drape/0/image.png"
+          alt="Thumbnail 1" class="clickable-image"
+          data-iframe-src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/The_living_room_features_a_brown_leather_sofa_positioned_against_a_wall_adorned_with_art._A_wooden_coffee_table_is_drape/0/viser.viser">
+      </div>
+      
+      
+      <div class="image-caption-item">
+        <div style="margin-top: 10px;"><i>The room contains a brown couch and a coffee table. The kitchen area has wooden cabinets🛋️</i></div>
+        <img
+          src="recordings/The_room_contains_a_brown_couch_and_a_coffee_table._The_kitchen_area_has_wooden_cabinets,_modern_appliances_such_as_a_re/0/image.png"
+          alt="Thumbnail 1" class="clickable-image"
+          data-iframe-src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/The_room_contains_a_brown_couch_and_a_coffee_table._The_kitchen_area_has_wooden_cabinets,_modern_appliances_such_as_a_re/0/viser.viser">
+    
+      </div>
+    
+    <div class="image-caption-item" style="text-align: center; flex: 1 1 45%;">
+      <div style="margin-top: 10px;"><i>A wooden round dining table with chairs sits in a modern dining room</i> 🏡</div>
+      <img
+        src="recordings/A_wooden_round_dining_table_with_chairs_sits_in_a_modern_dining_room._A_sliding_glass_door_and_large_window_offer_access/0/image/A wooden round dining table with chairs sits in a _.png"
+        alt="Thumbnail 1" class="clickable-image"
+        data-iframe-src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/A_wooden_round_dining_table_with_chairs_sits_in_a_modern_dining_room._A_sliding_glass_door_and_large_window_offer_access/0/viser.viser">
+    </div>
+    
+    
+    <div class="image-caption-item" style="text-align: center; flex: 1 1 45%;">
+      <div style="margin-top: 10px;"><i>An aerial view reveals a landscape dominated by trees and bushes, with a body of
+          water visible in the background</i> 🌲</div>
+      <img
+        src="recordings/An_aerial_view_reveals_a_landscape_dominated_by_trees_and_bushes,_with_a_body_of_water_visible_in_the_background._Buildi/0/image.png"
+        alt="Thumbnail 2" class="clickable-image"
+        data-iframe-src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/An_aerial_view_reveals_a_landscape_dominated_by_trees_and_bushes,_with_a_body_of_water_visible_in_the_background._Buildi/0/viser.viser">
+    </div>
+    
+    
+    <div class="image-caption-item" style="text-align: center; flex: 1 1 45%;">
+      <div style="margin-top: 10px;"><i>The kitchen is spacious with wooden floors and white countertops. A large island
+          stands in the center</i> 🏠</div>
+      <img
+        src="recordings/The_kitchen_is_spacious_with_wooden_floors_and_white_countertops._A_large_island_stands_in_the_center,_surrounded_by_cha/0/image.png"
+        alt="Thumbnail 1" class="clickable-image"
+        data-iframe-src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/The_kitchen_is_spacious_with_wooden_floors_and_white_countertops._A_large_island_stands_in_the_center,_surrounded_by_cha/0/viser.viser">
+    </div>
+    
+    
+    
+    <div class="image-caption-item" style="text-align: center; flex: 1 1 45%;">
+      <div style="margin-top: 10px;"><i>A vintage clock hanging on a brick wall</i> ⏰</div>
+      <img src="recordings/A_vintage_clock_hanging_on_a_brick_wall/0/image.png" alt="Thumbnail 2" class="clickable-image"
+        data-iframe-src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/A_vintage_clock_hanging_on_a_brick_wall/0/viser.viser">
+    </div>
+     -->
+    
+    
+    <div class="image-caption-item" style="text-align: center; flex: 1 1 45%;">
+      <div style="margin-top: 10px;">
+        <i>A derelict spacecraft crashed in a barren alien landscape, its shattered hull half-buried in red Martian soil</i>
+        🛸
+      </div>
+      <img
+        src="recordings/A_derelict_spacecraft_crashed_in_a_barren_alien_landscape,_its_shattered_hull_half-buried_in_red_Martian_soil./0/image/A derelict spacecraft crashed in a barren alien la_.png"
+        alt="Thumbnail 1" class="clickable-image"
+        data-iframe-src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/A_derelict_spacecraft_crashed_in_a_barren_alien_landscape,_its_shattered_hull_half-buried_in_red_Martian_soil./0/viser.viser">
+    </div>
+    
+    
+    <div class="image-caption-item" style="text-align: center; flex: 1 1 45%;">
+      <div style="margin-top: 10px;"><i>A luxurious underwater hotel with transparent walls offering a panoramic view of the
+          ocean life</i> 🐟</div>
+      <img
+        src="recordings/A_luxurious_underwater_hotel_with_transparent_walls_offering_a_panoramic_view_of_the_ocean_life_swimming_by./0/image/A luxurious underwater hotel with transparent wall_.png"
+        alt="Thumbnail 2" class="clickable-image"
+        data-iframe-src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/A_luxurious_underwater_hotel_with_transparent_walls_offering_a_panoramic_view_of_the_ocean_life_swimming_by./0/viser.viser">
+    </div>
+    
+    
+    
+    <div class="image-caption-item" style="text-align: center; flex: 1 1 45%;">
+      <div style="margin-top: 10px;">
+        <i>A fragrant pine Christmas wreath</i> 🎄
+      </div>
+      <img src="recordings/A_fragrant_pine_Christmas_wreath/0/image/A fragrant pine Christmas wreath_.png" alt="Thumbnail 1"
+        class="clickable-image"
+        data-iframe-src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/A_fragrant_pine_Christmas_wreath/0/viser.viser">
+    </div>
+    
+    
+    <div class="image-caption-item" style="text-align: center; flex: 1 1 45%;">
+      <div style="margin-top: 10px;"><i>A serene koi pond surrounded by meticulously trimmed bonsai trees, stone statues,
+          and fallen cherry blossoms</i> 🌸</div>
+      <img
+        src="recordings/A_serene_koi_pond_surrounded_by_meticulously_trimmed_bonsai_trees,_stone_statues,_and_fallen_cherry_blossoms./0/image/A serene koi pond surrounded by meticulously trimm_.png"
+        alt="Thumbnail 2" class="clickable-image"
+        data-iframe-src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/A_serene_koi_pond_surrounded_by_meticulously_trimmed_bonsai_trees,_stone_statues,_and_fallen_cherry_blossoms./0/viser.viser">
+    
+    </div> 
 
-  <div id="wrapper" style="
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 2em;
+<!--     
+    <div class="image-caption-item" style="text-align: center; flex: 1 1 45%;">
+      <div style="margin-top: 10px;">
+        <i>A craggy mountain pass, where the path narrows between steep drops and the view stretches endlessly into the
+          distance</i> ⛰️
+      </div>
+      <img
+        src="recordings/A_craggy_mountain_pass,_where_the_path_narrows_between_steep_drops_and_the_view_stretches_endlessly_into_the_distance./0/image/A craggy mountain pass, where the path narrows bet_.png"
+        alt="Thumbnail 1" class="clickable-image"
+        data-iframe-src="recordings/A_craggy_mountain_pass,_where_the_path_narrows_between_steep_drops_and_the_view_stretches_endlessly_into_the_distance./0/viser.viser">
+    </div>
+    
+    
+    <div class="image-caption-item" style="text-align: center; flex: 1 1 45%;">
+      <div style="margin-top: 10px;"><i>A remote ice field, where the ground is cracked and rugged</i> 🧊</div>
+      <img
+        src="recordings/A_remote_ice_field,_where_the_ground_is_cracked_and_rugged,_and_the_silence_is_broken_only_by_the_occasional_crack_of_sh/0/image/A remote ice field, where the ground is cracked an_.png"
+        alt="Thumbnail 2" class="clickable-image"
+        data-iframe-src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/A_remote_ice_field,_where_the_ground_is_cracked_and_rugged,_and_the_silence_is_broken_only_by_the_occasional_crack_of_sh/0/viser.viser">
+    </div>
+    
+    
+    
+    <div class="image-caption-item" style="text-align: center; flex: 1 1 45%;">
+      <div style="margin-top: 10px;">
+        <i>A dilapidated mansion at the edge of a dark forest</i> 🌳
+      </div>
+      <img
+        src="recordings/A_dilapidated_mansion_at_the_edge_of_a_dark_forest,_its_once-grand_facade_now_shrouded_in_ivy_and_shadowed_by_towering,_/0/image/A dilapidated mansion at the edge of a dark forest_.png"
+        alt="Thumbnail 1" class="clickable-image"
+        data-iframe-src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/A_dilapidated_mansion_at_the_edge_of_a_dark_forest,_its_once-grand_facade_now_shrouded_in_ivy_and_shadowed_by_towering,_/0/viser.viser">
+    </div>
+    
+    
+    <div class="image-caption-item" style="text-align: center; flex: 1 1 45%;">
+      <div style="margin-top: 10px;"><i>A bright sunflower in a field</i> 🌻</div>
+      <img src="recordings/A_bright_sunflower_in_a_field/0/image/A bright sunflower in a field_.png" alt="Thumbnail 2"
+        class="clickable-image"
+        data-iframe-src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/A_bright_sunflower_in_a_field/0/viser.viser">
+    </div>
+    
+    
+    
+    <div class="image-caption-item" style="text-align: center; flex: 1 1 45%;">
+      <div style="margin-top: 10px;"><i>A bustling fish market at dawn, with icy slabs covered in fresh seafood and the air
+          thick with the smell of the ocean</i> 🍣</div>
+      <img
+        src="recordings/A_bustling_fish_market_at_dawn,_with_icy_slabs_covered_in_fresh_seafood_and_the_air_thick_with_the_smell_of_the_ocean./0/image/A bustling fish market at dawn, with icy slabs cov_.png"
+        alt="Thumbnail 1" class="clickable-image"
+        data-iframe-src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/A_bustling_fish_market_at_dawn,_with_icy_slabs_covered_in_fresh_seafood_and_the_air_thick_with_the_smell_of_the_ocean./0/viser.viser">
+    </div>
+    
+    
+    <div class="image-caption-item" style="text-align: center; flex: 1 1 45%;">
+      <div style="margin-top: 10px;"><i>A bedroom contains a bookshelf and closet with open shelves filled with books of
+          various sizes</i> 🛏️</div>
+      <img
+        src="recordings/A_bedroom_contains_a_bookshelf_and_closet_with_open_shelves_filled_with_books_of_various_sizes._The_bed_is_partially_vis/0/image/A bedroom contains a bookshelf and closet with ope_.png"
+        alt="Thumbnail 2" class="clickable-image"
+        data-iframe-src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/A_bedroom_contains_a_bookshelf_and_closet_with_open_shelves_filled_with_books_of_various_sizes._The_bed_is_partially_vis/0/viser.viser">
+    </div>
+
+        
+        <div class="image-caption-item" style="text-align: center; flex: 1 1 45%;">
+          <div style="margin-top: 10px;"><i>A bustling spice market in a Middle Eastern city, with sacks of colorful spices and
+              the air filled with aromatic scents </i> 🍯</div>
+          <img
+            src="recordings/A_bustling_spice_market_in_a_Middle_Eastern_city,_with_sacks_of_colorful_spices_and_the_air_filled_with_aromatic_scents./0/image/A bustling spice market in a Middle Eastern city, _.png"
+            alt="Thumbnail 1" class="clickable-image"
+            data-iframe-src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/A_bustling_spice_market_in_a_Middle_Eastern_city,_with_sacks_of_colorful_spices_and_the_air_filled_with_aromatic_scents./0/viser.viser">
+        </div>
+        
+        <div class="image-caption-item" style="text-align: center; flex: 1 1 45%;">
+          <div style="margin-top: 10px;"><i>A bedroom scene shows a bed against the far wall, a chair to the left, partially
+              closed curtains</i> 🛏️</div>
+          <img
+            src="recordings/A_bedroom_scene_shows_a_bed_against_the_far_wall,_a_chair_to_the_left,_and_partially_closed_curtains_suggesting_transiti/0/image/A bedroom scene shows a bed against the far wall, _.png"
+            alt="Thumbnail 1" class="clickable-image"
+            data-iframe-src="https://jiahao-shao1.github.io/build/?playbackPath=https://freemty.github.io/project-prometheus/recordings/A_bedroom_scene_shows_a_bed_against_the_far_wall,_a_chair_to_the_left,_and_partially_closed_curtains_suggesting_transiti/0/viser.viser">
+        
+        </div> -->
+
+    </div>
+
+  <div id="iframe-display-section" style="
+          margin: 0 auto;
+          margin-top: 2em;
+          text-align: center;
+          width: 100%;
+          border: 1px solid #ddd;
+          padding: 1em;
+          background-color: #f9f9f9;
       ">
-    <iframe
-      src="https://MonST3R-project.github.io/build/?playbackPath=https://MonST3R-project.github.io/recordings/recording_dog-gooses.viser&initDistanceScale=0.3&initHeightOffset=0.1"></iframe>
-    <iframe
-      src="https://MonST3R-project.github.io/build/?playbackPath=https://MonST3R-project.github.io/recordings/recording_bear.viser&initDistanceScale=0.15&initHeightOffset=0.2"></iframe>
-    <iframe
-      src="https://MonST3R-project.github.io/build/?playbackPath=https://MonST3R-project.github.io/recordings/recording_breakdance.viser&initDistanceScale=0.2&initHeightOffset=0.15"></iframe>
-    <iframe
-      src="https://MonST3R-project.github.io/build/?playbackPath=https://MonST3R-project.github.io/recordings/recording_car-roundabout.viser&initDistanceScale=0.75&initHeightOffset=0.1"></iframe>
-    <iframe
-      src="https://MonST3R-project.github.io/build/?playbackPath=https://MonST3R-project.github.io/recordings/recording_car-shadow.viser&initDistanceScale=1&initHeightOffset=0.05"></iframe>
-    <iframe
-      src="https://MonST3R-project.github.io/build/?playbackPath=https://MonST3R-project.github.io/recordings/recording_dog.viser&initDistanceScale=0.3&initHeightOffset=0.15"></iframe>
+
+      <h3>Interactive 3D Scene</h3>
+      <div class="instructions" style="margin-top: -1em;">
+        <div class="instruction-item" style="display: flex; align-items: center;">
+          <img src="icons/left-click.png" alt="Left Click" style="margin-right: 0px;">
+          <span>Drag with <em>left</em> click to <strong>rotate</strong> view</span>
+        </div>
+      
+        <div class="instruction-item" style="display: flex; align-items: center; margin-top: 10px;">
+          <img src="icons/scroll-wheel.png" alt="Scroll Wheel" style="margin-right: -5px;">
+          <span>Scroll to <strong>zoom</strong> in/out</span>
+        </div>
+      
+        <div class="instruction-item" style="display: flex; align-items: center; margin-top: 10px;">
+          <img src="icons/right-click.png" alt="Right Click" style="margin-right: 0px;">
+          <span>Drag with <em>right</em> click to <strong>move</strong> view</span>
+        </div>
+      </div>
+      
+      <div class="instructions_small">
+        <div class="instruction-item_small" style="display: flex; align-items: center; margin-top: -15px;">
+          <img src="icons/letter-w.png" alt="W" style="margin-right: -10px;">
+          <img src="icons/letter-s.png" alt="S" style="margin-right: 0px;">
+          <span>Moving forward and backward</span>
+        </div>
+      
+        <div class="instruction-item_small" style="display: flex; align-items: center; margin-top: -15px;">
+          <img src="icons/letter-a.png" alt="A" style="margin-right: -10px;">
+          <img src="icons/letter-d.png" alt="D" style="margin-right: 0px;">
+          <span>Moving left and right</span>
+        </div>
+      
+        <div class="instruction-item_small" style="display: flex; align-items: center; margin-top: -15px;">
+          <img src="icons/letter-q.png" alt="Q" style="margin-right: -10px;">
+          <img src="icons/letter-e.png" alt="E" style="margin-right: 0px;">
+          <span>Moving upward and downward</span>
+        </div>
+      </div>
+
+    
+      <iframe id="iframe-display" style="width: 100%; height: 500px; border: none;"></iframe>
+
+    </div>
+    
+<script>
+  // JavaScript to handle the click event and load the iframe
+  document.querySelectorAll('.clickable-image').forEach(image => {
+    image.addEventListener('click', function () {
+      const iframeSrc = this.getAttribute('data-iframe-src'); // Get the iframe source from the data attribute
+      const iframeDisplay = document.getElementById('iframe-display');
+      iframeDisplay.src = iframeSrc; // Set the iframe source
+    });
+  });
+
+  // Set the default iframe source to the first scene on page load
+  window.addEventListener('load', function () {
+    const firstImage = document.querySelector('.clickable-image'); // Get the first image
+    const iframeSrc = firstImage.getAttribute('data-iframe-src'); // Get its iframe source
+    const iframeDisplay = document.getElementById('iframe-display');
+    iframeDisplay.src = iframeSrc; // Set the iframe source
+  });
+</script>
+
   </div>
 </body>
 
