@@ -1,6 +1,6 @@
 @article{yang2024prometheus,
-  author    = {Yuanbo, Yang and Jiahao, Shap and Xinyang, Li and Yujun, Shen and Andreas, Geiger and Yiyi, Liao},
+  author    = {Yuanbo, Yang and Jiahao, Shao and Xinyang, Li and Yujun, Shen and Andreas, Geiger and Yiyi, Liao},
   title     = {Prometheus: 3D-Aware Latent Diffusion Models for Feed-Forward Text-to-3D Scene Generation},
-  journal   = {arXiv preprint arxiv:2412.21117},
+  journal   = {arxiv:2412.21117},
   year      = {2024}
 }
